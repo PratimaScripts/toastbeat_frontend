@@ -33,21 +33,21 @@ export default function Register() {
             return false
         }
         
-        let type = formInput.cuisinePref;
-        var log;
-        if (type ==="cuisine"){
-            log = "cuisine"
-        }
-        else if (type === "italian"){
-            log = "italian"
-        }
-        else if (type === "bakedgoods"){
-            log = "bakedgoods"
-        }
-        else {
-            setFormInput({error: "Select Preference type!"})
-            return false
-        }
+        // let type = formInput.cuisinePref;
+        // // var log;
+        // if (type ==="cuisine"){
+        //     log = "cuisine"
+        // }
+        // else if (type === "italian"){
+        //     log = "italian"
+        // }
+        // else if (type === "bakedgoods"){
+        //     log = "bakedgoods"
+        // }
+        // else {
+        //     setFormInput({error: "Select Preference type!"})
+        //     return false
+        // }
         
         
 
@@ -117,7 +117,7 @@ export default function Register() {
 
                         <Form.Group controlId="formGridCuisine">
                             <Form.Label>Cuisine Preference</Form.Label>
-                            <Form.Control name="cuisinePref" onChange={handleChange} value={formInput.type} as="select" defaultValue="Choose...">
+                            <Form.Control name="cuisinePref" onChange={handleChange} value={formInput.cuisinePref} as="select" defaultValue="Choose...">
                                 <option value="chinese">Chinese</option>
                                 <option value="italian">Italian</option>
                                 <option value="bakedgoods">Baked Goods</option>
