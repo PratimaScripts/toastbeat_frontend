@@ -1,0 +1,24 @@
+/* my custom css */
+  
+.bgimg {
+background-image: url("../img/bg.jpg");
+height: 100%;
+background-position: center;
+background-size: cover;
+position: relative;
+color: white;
+font-family: "Courier New", Courier, monospace;
+font-size: 25px;
+}
+
+.content {
+position: relative;
+height: calc(100vh - 56px);
+text-align: center;
+transform: translateY(30%);
+}
+
+hr {
+margin: auto;
+width: 40%;
+}
