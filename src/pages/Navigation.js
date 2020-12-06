@@ -7,7 +7,7 @@ function Navigation(props) {
   
   const logout = () => {
     localStorage.clear("token");
-    history.push("/login");
+    history.push("/");
     props.setLoggedIn(false)
   }
   
