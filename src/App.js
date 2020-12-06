@@ -14,7 +14,7 @@ function App() {
 
   const PrivateRoute = ({ component, ...rest }) => {
     const isAuthed = localStorage.getItem('token');
-    console.log(isAuthed, 'dddddddddddddddddddd')
+    // console.log(isAuthed, 'dddddddddddddddddddd')
     return (
       <Route {...rest} exact
         render = {(props) => (
@@ -35,7 +35,7 @@ function App() {
       />
     )
   }
-  
+
   return (
       <Router>    
             <Navigation isAuth={loggedIn} setLoggedIn={setLoggedIn}/>
