@@ -62,7 +62,7 @@ export default function Login() {
             <Row>
                 <Col>
                     <Form  onSubmit={handleSubmit} style={{marginTop: "20%"}} >
-                        <Form.Group controlId="formBasicUsername">
+                        <Form.Group controlid="formBasicUsername">
                             <Form.Label>Username</Form.Label>
                             <Form.Control 
                             type="text" 
@@ -73,7 +73,7 @@ export default function Login() {
                             />
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group controlid="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control 
                             type="password" 

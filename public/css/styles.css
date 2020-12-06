@@ -22,3 +22,71 @@ hr {
 margin: auto;
 width: 40%;
 }
+
+.modalMain {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal_main {
+    width: 100%;
+    max-width: 700px;
+    min-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    max-height: 80vh;
+    background-color: #ffffff;
+    text-align: left;
+    overflow: hidden;
+  }
+  
+  .modal_head,
+  .modal_body,
+  .modal_footer {
+    width: 100%;
+    padding: 7.5px;
+  }
+  
+  .modal_head {
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    padding: 0px;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .modal_head .modal_title {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  .modal_btn .cross {
+    background: none;
+    border: none;
+    font-size: 45px;
+    color: #ffffff;
+  }
+  
+  .modal_head .modal_btn {
+    width: 10%;
+  }
+  .modal_body {
+    overflow: hidden auto;
+    max-height: 60vh;
+    padding: 20px;
+  }
+  
+  .modal_main h2 {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+  }
