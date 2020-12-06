@@ -1,15 +1,17 @@
+import axios from 'axios';
 import React, {useState} from 'react';
 import { Button, Container, Form, Row, Image, Col} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link,  useHistory } from 'react-router-dom';
 
 export default function Register() {
+    let history = useHistory();
 
     const [formInput, setFormInput] = useState({
         username: "",
         name: "",
         email: "",
         password: "",
-        cuisinePref: ""
+        cuisine: ""
     })
 
     const handleChange = e => {
@@ -22,34 +24,34 @@ export default function Register() {
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.currentTarget;
+
         if (
             formInput.username === "" &&
             formInput.name === "" &&
             formInput.email === "" &&
             formInput.password === "" &&
-            formInput.cuisinePref === ""
+            formInput.cuisine === ""
         ){
             setFormInput({error: "Please fill all the input!"})
             return false
         }
+
+        const data = {
+            username: formInput.username, 
+            name: formInput.name,
+            email: formInput.email,
+            password: formInput.password,
+            cuisine: formInput.cuisine
+        }
         
-        // let type = formInput.cuisinePref;
-        // // var log;
-        // if (type ==="cuisine"){
-        //     log = "cuisine"
-        // }
-        // else if (type === "italian"){
-        //     log = "italian"
-        // }
-        // else if (type === "bakedgoods"){
-        //     log = "bakedgoods"
-        // }
-        // else {
-        //     setFormInput({error: "Select Preference type!"})
-        //     return false
-        // }
-        
-        
+        axios.post(`http://localhost:3001/auth/register`, data )
+        .then(res => {
+            console.log(res.data);
+            history.push("/login");
+        })
+        .catch(err =>{
+            console.log(err.response.data.error)
+        })
 
         if (form.checkValidity() === false) {
             event.preventDefault();
@@ -117,10 +119,11 @@ export default function Register() {
 
                         <Form.Group controlId="formGridCuisine">
                             <Form.Label>Cuisine Preference</Form.Label>
-                            <Form.Control name="cuisinePref" onChange={handleChange} value={formInput.cuisinePref} as="select" defaultValue="Choose...">
-                                <option value="chinese">Chinese</option>
-                                <option value="italian">Italian</option>
-                                <option value="bakedgoods">Baked Goods</option>
+                            <Form.Control controlId="formCuisinePref" name="cuisine"  onChange={handleChange} value={formInput.cuisine} as="select" required>
+                                <option default={true} value="">Choose...</option>
+                                <option value="1">Chinese</option>
+                                <option value="2">Italian</option>
+                                <option value="3">Baked Goods</option>
                             </Form.Control>
                         </Form.Group>
                       
