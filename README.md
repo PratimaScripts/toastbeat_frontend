@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+## Toastbeat Frontend
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -14,57 +14,68 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Overview of functionality:
 
-### `yarn build`
+You need to create a website that allows users to register and login to an application and
+view a restaurant menu based on the preferences they set.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Landing page functionality:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+	When a user first comes to the site, they see a landing page. Landing page Says "Welcome to XYZ Restaurant. Please register to set your preferences."
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+	On the top right hand corner of the screen there will be 2 buttons - Login and Register.
 
-### `yarn eject`
+Register Functionality:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+	New users will click on the register button to register. Clicking on register button will show another page that will have a register form with following fields:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+	User Name: username for the site login - If username already exists, user will be shown error message that username already exists and they will have to provide another username
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+	Name: Input text field
+	Password: Password input field
+	Cuisine preference: Dropdown with following options -> Chinese, Italian, Baked Goods
+	Email: Email id field with email validation to make sure the user has entered an email following format user@domain.extension. So users will not be allowed to enter something like xyz@1234. Only emails like xyz@abc.com should be allowed.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+	Register: Button that will store the user details in the backend and their preference.
 
-## Learn More
+	Backend Register api:-
+	Submitted user details will be stored server side in a global variable. If time permits see if you can add any database integration, if not, it's ok to store user details on the server side itself.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Login functionality:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+	When an existing user clicks on the login button, their username and password will be checked. If a username exists, users will be taken to the menu page based on the preference they selected.
 
-### Code Splitting
+	If user selects Chinese then a menu will be displayed in the center of the page with items:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+		Hakka Noodles
+		Fried Rice
+		Dumplings
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+	If user selected Italian then a menu will be displayed in the center of the page  with items:
+		Pasta
+		Lasagne
+		Chips
 
-### Making a Progressive Web App
+	If user selected Bakedgoods then a menu will be displayed in the center of the page with items:
+		Pineapple Pastry
+		Chocolate cake
+		Cookies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+	At the top right hand side corner of the Menu page there will be a Logout button. Clicking the logout button will take the user back to the landing page.
 
-### Advanced Configuration
+	Menu items will be stored server side along with user preferences so that as soon as the user logs in we can determine their preference and get the correct menu.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Requirements for project configuration, build files etc:
+	Babel support for compilation.
+	Eslint for linting and CI/CD pipeline integration
+	Validator js to make email validations
+	dotenv js for configuration
+	Project will be built using Yarn.
 
-### Deployment
+### AWS requirements:
+	Project can be maintained in Github or bitbucket. Separate repositories and pipelines are to be created for React project and Node js project but both are to be deployed to the same ec2 instance.
+	The React project will run on port 3000 and node js express server will run on port 3001.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+	PM2 will be set up on EC2 instances to manage the project lifecycle.
